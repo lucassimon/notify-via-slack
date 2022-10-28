@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "slack_notifier"
+name = "notify_via_slack"
 version = "0.1.0"
 description = "notify messages on channels"
 authors = ["Lucas <lucassrod@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/lucassimon/slack-notifier"
-repository = "https://github.com/lucassimon/slack-notifier"
+homepage = "https://github.com/lucassimon/notify-via-slack"
+repository = "https://github.com/lucassimon/notify-via-slack"
 keywords = ["slack"]
 classifiers = [
     "Operating System :: OS Independent",
