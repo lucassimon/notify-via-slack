@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "notify_via_slack"
-version = "0.1.0"
+version = "0.1.1"
 description = "notify messages on channels"
 authors = ["Lucas <lucassrod@gmail.com>"]
 license = "MIT"
