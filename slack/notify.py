@@ -15,7 +15,8 @@ class SlackNotify:
     """
     A class for uses the slack sdk to send a message
     """
-    def __init__(self, app_name:str) -> None:
+
+    def __init__(self, app_name: str) -> None:
         self.app_name = app_name
         self.client = self.connect()
 
@@ -25,21 +26,13 @@ class SlackNotify:
         """
         return WebClient(token=config("SLACK_BOT_TOKEN"))
 
-    def get_channel_by_is_error(self, is_error:bool):
-        return (
-            config('SLACK_BOT_ERRORS_CHANNEL') if is_error
-            else config("SLACK_BOT_REPORTS_CHANNEL")
-        )
+    def get_channel_by_is_error(self, is_error: bool):
+        return config("SLACK_BOT_ERRORS_CHANNEL") if is_error else config("SLACK_BOT_REPORTS_CHANNEL")
 
     def make_text(self, message):
         return f"[{self.app_name}]: {message}"
 
-    def notify(
-        self,
-        message: str,
-        is_error: bool = False,
-        emit_log: bool = False
-    ):
+    def notify(self, message: str, is_error: bool = False, emit_log: bool = False):
         """
         Method to notify a message and post it into a channel
         """
@@ -55,7 +48,7 @@ class SlackNotify:
         except SlackApiError as exc:
             assert exc.response["ok"] is False
             assert exc.response["error"]  # str like 'invalid_auth', 'channel_not_found'
-            error = exc.response['error']
+            error = exc.response["error"]
             logger.error("Got an error: {error}", error=error)
         except Exception as exc:
             logger.error("An Exception occurred {exc}", exc=exc)
