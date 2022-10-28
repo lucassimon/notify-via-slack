@@ -27,13 +27,13 @@ lint: clean
 	@pylint slack/
 
 lint_black:
-	@black --check slack/ src/
+	@docker run --rm --volume $(pwd):/src --workdir /src pyfound/black:latest_release black --check slack/
 
 lint_isort:
 	@isort --check-only slack/ src/
 
 black:
-	@black slack/ src/
+	@docker run --rm --volume $(pwd):/src --workdir /src pyfound/black:latest_release black slack/
 
 isort:
 	@isort slack/ src/
